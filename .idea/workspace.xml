@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba6dae43-7997-449e-937d-a47df65e0c88" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_pages/newtech.md" afterPath="$PROJECT_DIR$/_pages/newtech.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_pages/newtech.html" afterPath="$PROJECT_DIR$/_pages/newtech.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +52,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="51">
-                <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+                <caret line="3" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="8" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -63,8 +63,8 @@
       <file leaf-file-name="talkmap.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_pages/talkmap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="119">
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,6 +172,7 @@
         <option value="$PROJECT_DIR$/_data/navigation.yml" />
         <option value="$PROJECT_DIR$/_pages/newtech.md" />
         <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_pages/newtech.html" />
       </list>
     </option>
   </component>
@@ -661,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_pages/talkmap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
+        <state relative-caret-position="119">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -671,7 +672,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="51">
-            <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            <caret line="3" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="8" />
             <folding />
           </first_editor>
           <second_editor />
