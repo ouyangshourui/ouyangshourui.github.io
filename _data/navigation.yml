@@ -1,5 +1,7 @@
 # main links links
 main:
+  - title: "new tech in 2018"
+    url: /newtech/
   - title: "Publications"
     url: /publications/
 
