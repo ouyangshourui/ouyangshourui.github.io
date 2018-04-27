@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 AI如雨后春笋般的出现，DEVOPS的理论不断深入。所有高大上的开源产品都支持两个环境：docker 和Linux。本文主要讲解怎么在一台安装了GPU的centos7 环境安装tensorflow docker镜像。国内就几个大厂的同学可以享受这种高级环境待遇，如果您有该环境建议尝试起来吧，毕竟AI可以让我们多一项skill。
-详细安装地址：https://blog.csdn.net/u011291159/article/details/66970202
+[详细安装地址](https://blog.csdn.net/u011291159/article/details/66970202)
 
 A data-driven personal website
 ======
