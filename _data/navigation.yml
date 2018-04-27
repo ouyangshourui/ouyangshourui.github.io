@@ -2,6 +2,7 @@
 main:
   - title: "New Tech in 2018"
     url: /newtech/
+
   - title: "Publications"
     url: /publications/
 
