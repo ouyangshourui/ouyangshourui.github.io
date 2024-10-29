@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目实战 - ricky_ai</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #111827;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            top: -50%;
+            left: -50%;
+            background: linear-gradient(45deg, #4f46e5, #9333ea);
+            opacity: 0.1;
+            z-index: -1;
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4f46e5, #9333ea);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .beginner {
+            background: #059669;
+        }
+
+        .intermediate {
+            background: #d97706;
+        }
+
+        .advanced {
+            background: #dc2626;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.875rem;
+        }
+
+        .start-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #4f46e5, #9333ea);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .start-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(45deg, #4f46e5, #9333ea);
+            animation: shimmer 2s infinite linear;
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI项目实战</h1>
+            <p>通过实践掌握AI应用开发</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="difficulty beginner">入门</span>
+                <h2 class="project-title">智能对话机器人</h2>
+                <p>构建你的第一个AI助手</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">OpenAI API</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                </div>
+                <a href="#" class="start-button">开始学习</a>
+            </div>
+
+            <div class="project-card">
+                <span class="difficulty intermediate">进阶</span>
+                <h2 class="project-title">AI图像生成器</h2>
+                <p>构建自己的图像生成应用</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Stable Diffusion</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">React</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%"></div>
+                    </div>
+                </div>
+                <a href="#" class="start-button">开始学习</a>
+            </div>
+
+            <div class="project-card">
+                <span class="difficulty advanced">高级</span>
+                <h2 class="project-title">AI视频剪辑助手</h2>
+                <p>打造智能视频处理系统</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">FFmpeg</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">TensorFlow</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <a href="#" class="start-button">开始学习</a>
+            </div>
+        </div>
+
+        <center><a href="/" class="back-button">返回首页</a></center>
+    </div>
+</body>
+</html>
