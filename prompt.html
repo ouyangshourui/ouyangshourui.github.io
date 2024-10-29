@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提示工程 - ricky_ai</title>
+    <title>提示工程学习路线 - ricky_ai</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+            --spacing-base: 1rem;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,44 +21,67 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #0f172a;
-            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: calc(var(--spacing-base) * 2);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: calc(var(--spacing-base) * 4);
+            padding: calc(var(--spacing-base) * 2) 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-base);
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
         }
 
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            padding: calc(var(--spacing-base) * 2) 0;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
-            width: 6px;
-            background: #60a5fa;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
             top: 0;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            border-radius: 4px;
         }
 
         .timeline-item {
-            padding: 2rem 0;
+            padding: calc(var(--spacing-base) * 2) 0;
             width: calc(50% + 2rem);
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.02);
         }
 
         .timeline-item:nth-child(even) {
@@ -59,19 +90,28 @@
 
         .timeline-content {
             background: rgba(96, 165, 250, 0.1);
-            padding: 2rem;
+            padding: calc(var(--spacing-base) * 2);
             border-radius: 1rem;
             backdrop-filter: blur(10px);
-            animation: glow 2s infinite alternate;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            transition: all 0.3s ease;
         }
 
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
-            }
+        .timeline-content:hover {
+            background: rgba(96, 165, 250, 0.15);
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+        }
+
+        .timeline-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-base);
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            color: #94a3b8;
+            font-size: 1.1rem;
         }
 
         .timeline-item::before {
@@ -79,10 +119,17 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: #60a5fa;
+            background: var(--primary);
             border-radius: 50%;
             top: 50%;
             transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--primary-dark);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.8);
         }
 
         .timeline-item:nth-child(odd)::before {
@@ -94,57 +141,94 @@
         }
 
         .back-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 1rem 2rem;
-            background: #60a5fa;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             text-decoration: none;
             border-radius: 2rem;
-            margin-top: 2rem;
+            margin-top: calc(var(--spacing-base) * 3);
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .back-button:hover {
-            background: #3b82f6;
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(96, 165, 250, 0.4);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: calc(var(--spacing-base) * 2);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+
+            .timeline-item::before {
+                left: -2rem !important;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <h1>提示工程学习路线</h1>
-            <p>系统掌握AI提示词编写技巧</p>
-        </div>
+            <p>系统掌握 AI 提示词编写技巧，提升 AI 应用效率</p>
+        </header>
 
-        <div class="timeline">
+        <main class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>基础概念</h2>
-                    <p>了解提示工程的核心原理</p>
+                    <p>了解提示工程的核心原理和基本概念，掌握与 AI 模型交互的基础知识</p>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>提示模式</h2>
-                    <p>掌握常用的提示词模板</p>
+                    <p>学习并掌握常用的提示词模板，提高提示词的效率和准确性</p>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>场景应用</h2>
-                    <p>不同领域的提示词策略</p>
+                    <p>探索不同领域的提示词策略，实践各类应用场景的最佳实践</p>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>高级技巧</h2>
-                    <p>提示词优化和调试方法</p>
+                    <p>深入学习提示词优化和调试方法，掌握高级应用技巧</p>
                 </div>
             </div>
-        </div>
+        </main>
 
-        <center><a href="/" class="back-button">返回首页</a></center>
+        <div class="button-container">
+            <a href="/" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                返回首页
+            </a>
+        </div>
     </div>
 </body>
 </html>
