@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提示工程学习路线 - ricky_ai</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <title>提示工程学习路线 - Tech Version</title>
     <style>
         :root {
-            --primary: #60a5fa;
-            --primary-dark: #3b82f6;
-            --bg-dark: #0f172a;
-            --text-light: #f8fafc;
-            --spacing-base: 1rem;
+            --neon-blue: #00f3ff;
+            --deep-blue: #0a192f;
+            --cyber-purple: #b829ff;
+            --text-glow: 0 0 10px rgba(0, 243, 255, 0.5);
+            --card-glow: 0 0 20px rgba(0, 243, 255, 0.2);
         }
 
         * {
@@ -20,124 +19,130 @@
             box-sizing: border-box;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+        }
+
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(45deg, #0a192f, #0d1b2a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
             min-height: 100vh;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: calc(var(--spacing-base) * 2);
+            padding: 2rem;
         }
 
         .header {
             text-align: center;
-            margin-bottom: calc(var(--spacing-base) * 4);
-            padding: calc(var(--spacing-base) * 2) 0;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--neon-blue);
+            box-shadow: var(--text-glow);
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-base);
-            background: linear-gradient(135deg, var(--primary), #a855f7);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, var(--neon-blue), var(--cyber-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: var(--text-glow);
         }
 
         .header p {
+            color: #8892b0;
             font-size: 1.2rem;
-            color: #94a3b8;
         }
 
-        .timeline {
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .learning-card {
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid var(--neon-blue);
+            border-radius: 15px;
+            padding: 2rem;
             position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: calc(var(--spacing-base) * 2) 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 4px;
-        }
-
-        .timeline-item {
-            padding: calc(var(--spacing-base) * 2) 0;
-            width: calc(50% + 2rem);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: scale(1.02);
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-left: auto;
-        }
-
-        .timeline-content {
-            background: rgba(96, 165, 250, 0.1);
-            padding: calc(var(--spacing-base) * 2);
-            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: float 6s ease-in-out infinite;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(96, 165, 250, 0.2);
-            transition: all 0.3s ease;
         }
 
-        .timeline-content:hover {
-            background: rgba(96, 165, 250, 0.15);
-            border-color: rgba(96, 165, 250, 0.3);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+        .learning-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-glow);
         }
 
-        .timeline-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-base);
-            color: var(--primary);
-        }
-
-        .timeline-content p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        .timeline-item::before {
+        .learning-card::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
-            transition: all 0.3s ease;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
         }
 
-        .timeline-item:hover::before {
-            background: var(--primary-dark);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.8);
+        .learning-card:hover::before {
+            transform: translateX(100%);
         }
 
-        .timeline-item:nth-child(odd)::before {
-            right: -3rem;
+        .learning-card h2 {
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .timeline-item:nth-child(even)::before {
-            left: -3rem;
+        .learning-card h2::before {
+            content: '>';
+            color: var(--cyber-purple);
+        }
+
+        .learning-card p {
+            color: #8892b0;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .back-button {
@@ -145,83 +150,82 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
+            margin-top: 3rem;
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
             text-decoration: none;
-            border-radius: 2rem;
-            margin-top: calc(var(--spacing-base) * 3);
-            transition: all 0.3s ease;
+            border-radius: 30px;
             font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
         }
 
         .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(96, 165, 250, 0.4);
-        }
-
-        .button-container {
-            text-align: center;
-            margin-top: calc(var(--spacing-base) * 2);
+            background: var(--neon-blue);
+            color: var(--deep-blue);
+            box-shadow: var(--text-glow);
         }
 
         @media (max-width: 768px) {
-            .timeline::after {
-                left: 2rem;
-            }
-
-            .timeline-item {
-                width: calc(100% - 4rem);
-                margin-left: 4rem !important;
-            }
-
-            .timeline-item::before {
-                left: -2rem !important;
-            }
-
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
+            
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 添加网格背景效果 */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+    <div class="grid-overlay"></div>
     <div class="container">
         <header class="header">
             <h1>提示工程学习路线</h1>
-            <p>系统掌握 AI 提示词编写技巧，提升 AI 应用效率</p>
+            <p>探索 AI 提示工程的未来，掌握与人工智能对话的艺术</p>
         </header>
 
-        <main class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>基础概念</h2>
-                    <p>了解提示工程的核心原理和基本概念，掌握与 AI 模型交互的基础知识</p>
-                </div>
+        <main class="learning-grid">
+            <div class="learning-card">
+                <h2>基础概念</h2>
+                <p>探索提示工程的核心原理，建立与 AI 模型交互的认知基础，掌握关键术语和基本框架。</p>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>提示模式</h2>
-                    <p>学习并掌握常用的提示词模板，提高提示词的效率和准确性</p>
-                </div>
+            <div class="learning-card">
+                <h2>提示模式</h2>
+                <p>深入研究提示词模板系统，构建个性化提示策略，优化交互效率和输出质量。</p>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>场景应用</h2>
-                    <p>探索不同领域的提示词策略，实践各类应用场景的最佳实践</p>
-                </div>
+            <div class="learning-card">
+                <h2>场景应用</h2>
+                <p>实践多领域提示技巧，从实际案例中提炼经验，构建场景化解决方案。</p>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>高级技巧</h2>
-                    <p>深入学习提示词优化和调试方法，掌握高级应用技巧</p>
-                </div>
+            <div class="learning-card">
+                <h2>高级技巧</h2>
+                <p>掌握提示词优化方法，突破性能边界，实现与 AI 的深度协同创新。</p>
             </div>
         </main>
 
-        <div class="button-container">
+        <div style="text-align: center;">
             <a href="/" class="back-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5M12 19l-7-7 7-7"/>
